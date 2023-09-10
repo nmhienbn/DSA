@@ -1,7 +1,4 @@
-import edu.princeton.cs.algs4.StdOut;
-import edu.princeton.cs.algs4.StdRandom;
-import edu.princeton.cs.algs4.StdStats;
-import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+import edu.princeton.cs.algs4.*;
 
 import static java.lang.Math.sqrt;
 
@@ -60,7 +57,7 @@ public class PercolationStats {
 
     // test client (see below)
     public static void main(String[] args) {
-        PercolationStats stats = new PercolationStats(2, 1000000);
+        PercolationStats stats = new PercolationStats(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
 
         System.out.printf("mean                    = %f\n", stats.mean());
         StdOut.printf("stddev                  = %f\n", stats.stddev());
