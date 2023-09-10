@@ -1,0 +1,150 @@
+% \verb|print(g)|
+\documentclass[12pt]{article}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{exercises}
+\usepackage[left = 1.5cm, right = 1.5cm, top = 2cm, bottom = 2cm]{geometry}
+
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{realboxes}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{mygray}{rgb}{0.8,0.8,0.8}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{BÀI TẬP CẤU TRÚC DỮ LIỆU VÀ GIẢI THUẬT TUẦN 2}
+
+\author{Nguyễn Minh Hiển}
+
+\date{07-09-2023}
+
+\begin{document}
+\maketitle
+
+\begin{exercise}
+\begin{lstlisting}[language = Java , firstnumber = 1 , escapeinside={(*@}{@*)}]
+/** TenHelloWorlds class. */
+public class TenHelloWorlds {
+    /** Main method. */
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Hello, World");
+        }
+    }
+}
+\end{lstlisting}
+\end{exercise}
+        
+\begin{exercise}
+\begin{itemize}
+    \item \lstinline{public}\\
+    Chương trình báo lỗi: \Colorbox{mygray}{\lstinline|'main' method is not declared 'public static'|} do hàm main không đúng format
+    \item \lstinline{static}\\
+    Chương trình báo lỗi: \Colorbox{mygray}{\lstinline|'main' method is not declared 'public static'|} do hàm main không đúng format
+    \item \lstinline{void}\\
+    Chương trình báo lỗi: \Colorbox{mygray}{\lstinline|invalid method declaration; return type required|} do hàm main thiếu kiểu trả về
+    \item \lstinline{args}\\
+    Chương trình báo lỗi: \Colorbox{mygray}{\lstinline|<identifier> expected|}
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+Khi viết sai các từ khóa: \lstinline{public}, \lstinline{static} và 
+\lstinline{void} thì khi compile, chương trình sẽ báo lỗi cú pháp 
+ngay lập tức.\\
+Còn khi viết sai \lstinline{args} thì đây là tên biến và điều này
+không ảnh hưởng đến chương trình.
+\end{exercise}
+
+\begin{exercise}
+\begin{itemize}
+\item java Hi\\
+Chương trình sẽ báo lỗi 
+\Colorbox{mygray}{\lstinline|Index 0 out of bounds for length 0|}
+
+\item java Hi \text{@!\&\^{}\%}\\
+Chương trình sẽ báo lỗi 
+\Colorbox{mygray}{\lstinline|Unrecognized token in source text|} tại \text{@!\&\^{}\%}
+
+\item java Hi 1234\\
+Chương trình sẽ chạy bình thường và in ra "Hi, 1234. How are you?"
+
+\item java Hi.class Bob\\
+Chương trình sẽ báo lỗi 
+\Colorbox{mygray}{\lstinline|Could not find or load main class Hi.class|}
+
+\item java Hi.java Bob\\
+Chương trình sẽ chạy bình thường và in ra "Hi, Bob. How are you?"
+
+\item java Hi Alice Bob\\
+Chương trình sẽ chạy bình thường và in ra "Hi, Alice. How are you?"
+
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}
+\begin{lstlisting}[language = Java , firstnumber = 1 , escapeinside={(*@}{@*)}]
+    /** HiThree class. */
+    public class HiThree {
+        /** Main method. */
+        public static void main(String[] args) {
+            System.out.printf("Hi %s, %s, and %s.", args[2], args[1], args[0]);
+        }
+    }
+\end{lstlisting}
+\end{exercise}
+
+\begin{exercise}
+\begin{lstlisting}[language = Java , firstnumber = 1 , escapeinside={(*@}{@*)}]
+/** Initials class. */
+public class Initials {
+    /** Main method. */
+    public static void main(String[] args) {
+        System.out.println("***       **    **              **    **       **");
+        System.out.println("****      **    ***            ***    **       **");
+        System.out.println("** **     **    ****          ****    **       **");
+        System.out.println("**  **    **    ** **        ** **    **       **");
+        System.out.println("**   **   **    **  **      **  **    ***********");
+        System.out.println("**    **  **    **   **    **   **    **       **");
+        System.out.println("**     ** **    **    **  **    **    **       **");
+        System.out.println("**      ****    **     ****     **    **       **");
+        System.out.println("**       ***    **      **      **    **       **");
+    }
+}
+\end{lstlisting}
+\end{exercise}
+
+\begin{exercise}
+Chương trình sẽ báo lỗi 
+\Colorbox{mygray}{\lstinline|can't find main(String[]) method in class: Hello|}
+do hàm main không có tham số
+\end{exercise}
+
+\end{document}
